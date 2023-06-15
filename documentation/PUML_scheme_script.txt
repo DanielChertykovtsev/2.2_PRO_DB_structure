@@ -1,0 +1,32 @@
+@startuml
+digraph g {
+graph [
+rankdir = "LR"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+"node0" [
+label = "<f0> BookSerie| <f1> ID (primary key) : SERIAL	| Шифр : varchar	| Название : varchar	| Автор	: varchar | Год : int | Объем : int | Цена : decimal | Кол-во : int	| Изд-во : varchar	| Город: varchar"
+shape = "record"
+];
+"node1" [
+label = "<f0> Clients| <f1> ID (primary key) : SERIAL | Билет : VARCHAR | ФИО : VARCHAR	| Адрес : VARCHAR	| Телефон : VARCHAR | Дата_записи :	date "
+shape = "record"
+];
+"node2" [
+label = "<f0> Transaction| <f1> ID (primary key) : SERIAL |
+<f2>Client (foreign key) : integer |
+<f3>Book (foreign key) : integer	| Выдана : date	| Возврат : date"
+shape = "record"
+];
+"node0":f1 -> "node2":f2 [
+id = 0
+];
+"node1":f1 -> "node2":f3 [
+id = 2
+];
+}
